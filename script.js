@@ -1,3 +1,58 @@
+/* 
+
+let button = document.createElement("button");
+let div = document.getElementById('div')
+button.style.padding= "15px";
+button.innerText = "Click Me to create Li"
+div.appendChild(button)
+button.setAttribute("onclick","createLi()")
+
+let lang = document.querySelector('.language')
+console.log(lang);
+let newLi = document.createElement("li");
+console.log(newLi);
+newLi.innerText = "Java";
+console.log(newLi);
+lang.appendChild(newLi);
+
+let input= document.querySelector('input');
+console.log(input)
+
+function createLi(){
+    if(input.value!= ""){
+let newList = document.createElement('li');
+newList.innerText=input.value;
+lang.appendChild(newList)
+}
+else{alert(`Please enter the Li in the input`)}
+}
+
+let clearBtn = document.createElement("button");
+
+const secondLang = document.querySelector("li:nth-child(2)")
+    console.log(secondLang);
+    //secondLang.innerHTML = "Mojo"
+    const newli = document.createElement('li')
+    console.log(newli);
+    newli.textContent = "Mojo"
+    secondLang.replaceWith(newli)
+
+    console.log(newLi);
+    console.log(newLi.parentNode)
+
+    let body = document.querySelector('body')
+    console.log(body.parentElement)
+
+    let languageClass = document.getElementsByClassName('language');
+    newLi = document.createElement('li');
+    newLi.innerText = 'Script';
+    languageClass[0].appendChild(newLi);
+    console.log(languageClass)
+
+
+
+
+
 let hafsa = "Hafsa bint e Hassan";
 console.log(hafsa.length);
 let array = [];
@@ -102,3 +157,57 @@ console.log(fruitClass[1])
 
 
 
+*/
+
+
+// ++++++++++++++++ TO DO App-++++++++++++++++++++++++++++++++++++
+let input = document.getElementById('input');
+let taskBtn = document.getElementById('taskBtn');
+let delAllBtn = document.getElementById('delAllBtn');
+let listDiv = document.getElementById('listDiv');
+
+
+function addTask(){
+    let taskDiv = document.createElement('div');
+    listDiv.appendChild(taskDiv);
+    let taskDivP = document.createElement('p');
+    taskDivPContent = document.createTextNode(input.value);
+taskDivP.appendChild(taskDivPContent);
+taskDiv.appendChild(taskDivP);
+
+let editBtn = document.createElement('button');
+let editBtnText=document.createTextNode('Edit Task');
+editBtn.setAttribute('onclick','edit()');
+editBtn.appendChild(editBtnText);
+ 
+ taskDiv.appendChild(editBtn);
+
+ let delTaskBtn = document.createElement('button');
+
+let delTakBtnText = document.createTextNode('Delete Task');
+delTaskBtn.appendChild(delTakBtnText);
+delTaskBtn.setAttribute('onclick','delTask(this)');
+taskDiv.appendChild(delTaskBtn);
+
+}
+
+function delAll(){
+    listDiv.remove();
+    input.value ="";
+}
+
+function edit(){
+
+    let promptEdit = prompt("enter")
+}
+
+
+
+function delTask(del){
+// let abc = console.log(del)
+let abc = del.parentElement;
+console.log(abc)
+abc.remove();
+
+
+}
